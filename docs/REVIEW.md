@@ -1,5 +1,7 @@
 # Review 与验证记录
 
+本页记录 v2.0.0 独立网关的 review 与当时测试结果。v2.1.0 新增原生插件，当前版本记录见 [PLUGIN_REVIEW.md](PLUGIN_REVIEW.md)。
+
 版本：2.0.0  
 日期：2026-11-27
 

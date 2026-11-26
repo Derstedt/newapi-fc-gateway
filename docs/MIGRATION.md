@@ -1,4 +1,6 @@
-# 从 provider 插件方案迁移
+# 从早期 provider 插件迁移至独立网关
+
+本页记录可选的独立网关迁移路线。当前原生 FC 回环插件安装见 [PLUGIN.md](PLUGIN.md)，独立网关部署见 [GATEWAY.md](GATEWAY.md)。
 
 本版把 Tool-based Final Answer 放在客户端与已有 New API 之间，作为独立 HTTP 网关运行。网关读取已有模型目录，按选择规则生成别名，使用原渠道完成调用。
 
@@ -13,7 +15,7 @@
 
 ## 迁移步骤
 
-1. 保留现有 New API 和原有模型供应商渠道。按照 [README](../README.md) 创建 `.env` 与 `config/config.json`，启动网关。
+1. 保留现有 New API 和原有模型供应商渠道。按照 [网关部署说明](GATEWAY.md) 创建 `.env` 与 `config/config.json`，启动网关。
 2. `NEW_API_URL` 填原 New API 的根地址，例如 `http://host.docker.internal:3000`；共享 Docker 网络时可使用 `http://new-api:3000`。
 3. 运行选择工具，选择原渠道提供的真实模型。旧插件专门发布的包装模型无需再次选择；使用通配规则时，可通过 `exclude` 排除它们。
 4. 客户端 Base URL 改为 `http://服务器地址:3001/v1`，继续使用原 New API Key，刷新模型列表后选择自动生成的 `-fc` 别名。
@@ -35,7 +37,7 @@
 }
 ```
 
-不复用旧插件安装脚本或插件构建产物。本版只有 README 中的一套网关部署流程；模型增删通过原 New API 以及此配置完成。
+本页的 v2.0.0 网关迁移流程见 [GATEWAY.md](GATEWAY.md)，不使用旧插件安装脚本或产物；模型增删通过原 New API 以及此配置完成。v2.1.0 原生插件使用 [PLUGIN.md](PLUGIN.md) 中的独立安装步骤。
 
 ## 回退
 

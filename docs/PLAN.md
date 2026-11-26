@@ -1,5 +1,7 @@
 # New API FC Gateway Implementation Plan
 
+本页是已完成的 v2.0.0 独立网关计划；v2.1.0 的原生插件实施记录见 [PLUGIN_PLAN.md](PLUGIN_PLAN.md)。
+
 **Goal:** 一次接入已有 New API，通过模型列表选择和别名启用 Tool-based Final Answer。
 
 **Architecture:** 轻量前置 Node 网关，保留调用者凭据和原 New API 调度。原模型与 FC 别名同时发布；复用 v1 已 review 的正文转换核心。

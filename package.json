@@ -1,13 +1,17 @@
 {
   "name": "newapi-fc-gateway",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "A small New API gateway with selectable tool-based final-answer model aliases.",
+  "description": "Native New API FC provider plugin and optional gateway with shared final-answer conversion.",
   "scripts": {
     "start": "node src/server.js",
     "models": "node scripts/select-models.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "build:plugin": "node scripts/build-plugin.mjs",
+    "test:installer": "python3 -m unittest discover -s tests -p test_manage_plugin.py"
   },
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  }
 }
