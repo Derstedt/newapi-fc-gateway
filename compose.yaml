@@ -1,0 +1,14 @@
+services:
+  fc-gateway:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${TFA_PORT:-3001}:3001"
+    environment:
+      NEW_API_URL: "${NEW_API_URL:-http://host.docker.internal:3000}"
+      PORT: "3001"
+      TFA_CONFIG: /app/config/config.json
+    volumes:
+      - ./config:/app/config:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,0 +1,13 @@
+{
+  "name": "newapi-fc-gateway",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small New API gateway with selectable tool-based final-answer model aliases.",
+  "scripts": {
+    "start": "node src/server.js",
+    "models": "node scripts/select-models.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
